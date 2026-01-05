@@ -60,6 +60,7 @@ df_ambiente_preco = pd.concat([df_ambiente_preco, cliente], axis=1)
 df_ambiente_preco.to_json("ambiente.json", indent=2)
 
 print(df_ambiente_preco)
+print("Quantidade total de modulos")
 
 df_tipo_0 = df[df["Tipo"] == 0].copy()
 df_tipo_0 = df_tipo_0[~df_tipo_0["Descricao"].str.contains("GEOMETRIA", case=False, na=False)]
