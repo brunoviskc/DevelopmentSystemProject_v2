@@ -74,7 +74,7 @@ df_tipo_0["Largura"] = df_tipo_0["Largura"].astype(int)
 df_tipo_0["Profundidade"] = df_tipo_0["Profundidade"].astype(int)
 df_tipo_0["Altura"] = df_tipo_0["Altura"].astype(int)
 
-df_tipo_0 = df_tipo_0.groupby("Codigo").sum().reset_index(drop=False)
+# df_tipo_0 = df_tipo_0.groupby("Codigo").sum().reset_index(drop=False)
 
 valor_total_modulos = df_tipo_0[["Preco"]].sum()
 df_tipo_0["Preco"] = df_tipo_0["Preco"].map("R${:,.2f}".format)
@@ -93,7 +93,7 @@ area_total = area_total.round(2)
 area_total["Area"] = area_total["Area"] / metro_quadrado_chapa
 area_total["Area"] = area_total["Area"].round(1)
 qtd_chapa = area_total.rename(columns={"Codigo": "Chapa", "Area": "Quantidade"})
-# qtd_chapa["Quantidade"] = qtd_chapa["Quantidade"].astype(int)
+qtd_chapa["Quantidade"] = qtd_chapa["Quantidade"].astype(int)
 qtd_chapa = qtd_chapa.sort_values(by="Quantidade")
 qtd_chapa = qtd_chapa.reset_index(drop=True)
 
